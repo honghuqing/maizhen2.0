@@ -1,0 +1,14 @@
+.container{
+	padding: 20px;
+	margin: 20px;
+	-webkit-box-shadow: #dddddd 0px 0px 18px;
+	-moz-box-shadow: #ddd 0px 0px 18px;
+	box-shadow: #ddd 0px 0px 18px;
+}
+.container h2{
+	text-align: center;
+}
+.list{
+	margin-left: 77px;
+	cursor: pointer;
+}
