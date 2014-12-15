@@ -1,0 +1,164 @@
+input{
+	margin-left: 10px !important;
+}
+span{
+	color:#aaaaaa;
+	padding: 8px;
+	border: 1px solid #aaaaaa;
+	line-height: 30px;
+	cursor: pointer;
+}
+p{
+	line-height: 45px;
+	margin: 0px;
+}
+.one{
+	clear: both;
+	padding-top: 10px;
+}
+.addr{
+	text-align: center;
+}
+.container{
+	-webkit-box-shadow: #dddddd 0px 0px 18px;
+	-moz-box-shadow: #ddd 0px 0px 18px;
+	box-shadow: #ddd 0px 0px 18px;
+	display: none;
+}
+.container h2{
+	text-align: center;
+}
+.han1 label, .han2 label, .han3 label, .wen label, .re1 label, .re2 label, .re3 label, .xushi-shi label, .xushi-chang label, 
+.xushi-xu label, .cuxi-cu label, .cuxi-chang label, .cuxi-xi label{
+	width: 30px;
+	height: 2px;
+	margin-left: 5px;
+}
+.han1{
+	color:#244FA1;
+}
+.han1 label{
+	border-top: 3px solid #244FA1;	
+}
+.han2{
+	color:#0F92AD;
+}
+.han2 label{
+	border-top: 3px solid #0F92AD;	
+}
+.han3{
+	color:#00A0E9;
+}
+.han3 label{
+	border-top: 3px solid #00A0E9;	
+}
+.wen{
+	color:green;
+}
+.wen label{
+	border-top: 3px solid green;	
+}
+
+
+.re1{
+	color:#674498;
+}
+.re1 label{
+	border-top: 3px solid #674498;	
+}
+.re2{
+	color:#D0121B;
+}
+.re2 label{
+	border-top: 3px solid #D0121B;	
+}
+.re3{
+	color:#E4007F;
+}
+.re3 label{
+	border-top: 3px solid #E4007F;	
+}
+
+.xushi-shi label{
+	border-top: 4px solid #000000;
+}
+.xushi-chang label{
+	border-top: 2px solid #000;
+}
+.xushi-xu label{
+	border-top: 2px dashed #000;
+	width:60px !important;
+}
+.cuxi-cu label{
+	border-top: 4px solid #000;
+	height: 0px !important;
+}
+.cuxi-chang label{
+	border-top: 2px solid #000;
+}
+.cuxi-xi label{
+	border-top: 1px solid #000;
+}
+.active{
+	border-color: red;
+	-webkit-box-shadow: red 0px 0px 3px;
+	-moz-box-shadow: red 0px 0px 3px;
+	box-shadow: red 0px 0px 3px;
+}
+
+#show span{
+	margin-right: 10px;
+	padding: 4px;
+	border:1px solid #ff9900;
+	color:#ff9900;
+}
+#show label{
+	font-weight: normal;
+	font-size: 12px;
+}
+#show h3{font-size: 20px}
+#show .pos{
+
+	padding: 6px;
+	border:2px solid green;
+	color:green;
+}
+
+#success{
+	display:block;
+	position: fixed;
+	margin: 0px;
+	padding: 0px;
+	border:1px solid green;
+	box-shadow: 0px 0px 2px green;
+	display: none
+}
+#success h4{
+	text-align:center;
+	font-size:14px;
+	color:green;
+	font-weight:bold;
+}
+
+#false{
+	display:block;
+	position: fixed;
+	margin: 0px;
+	padding: 0px;
+	border:1px solid red;
+	box-shadow: 0px 0px 2px red;
+	display: none
+}
+#false h4{
+	text-align:center;
+	font-size:14px;
+	color:red;
+	font-weight:bold;
+}
+
+@media screen and (max-width: 900px) {	
+	.clear{
+		clear: both;
+	}
+}
+

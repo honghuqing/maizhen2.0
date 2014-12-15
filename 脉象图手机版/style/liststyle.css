@@ -1,0 +1,20 @@
+.container{
+	-webkit-box-shadow: #dddddd 0px 0px 18px;
+	-moz-box-shadow: #ddd 0px 0px 18px;
+	box-shadow: #ddd 0px 0px 18px;
+	padding: 0px 10px;
+}
+.header {
+	font-size: 17px;
+	font-weight: 700;
+	text-align: center;
+}
+.list{
+	cursor: pointer;
+	-webkit-box-shadow: #dddddd 0px 0px 18px;
+	-moz-box-shadow: #ddd 0px 0px 18px;
+	box-shadow: #ddd 0px 0px 18px;
+	text-align: center;
+	margin: 10px 0px;
+	padding: 10px;
+}

@@ -1,0 +1,1349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0" />
+<title>云脉</title>
+<link href="style/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://pan.baidu.com/res/static/images/favicon.ico"/>
+</head>
+<body>
+<div class="col-lg-5 col-xs-12" style="display:block;padding:0px;margin:10px 0px">
+	<h4 style="text-align:center;font-size:30px">云脉 0.1</h4>
+</div>
+<div class="container col-xs-12" id="success">
+	<h4>数据成功同步到数据库</h4>
+</div>
+<div class="container col-xs-12" id="false">
+	<h4>数据同步到数据库失败</h4>
+</div>
+<div id="maizhen" style="position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:9999;display:none;">
+<div class="col-xs-12" style="background:#fff;height:100%;color:#333;overflow:hidden;overflow-y:auto;padding:10px">
+<button class="btn btn-default" onclick="hiden()" style="float:right">关闭</button>
+<!-- 左，寸，浮 -->
+<div class="col-lg-5 col-xs-12" id="zcf">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zcf')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zcf')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zcf')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zcf')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zcf')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zcf')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zcf')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zcf')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zcf')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zcf')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zcf')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zcf')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zcf')" class="wu active">无</span>
+		</p>
+	</div>
+
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zcf')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zcf')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zcf')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zcf')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zcf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zcf')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zcf')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zcf')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zcf')" class="xushi-chang active">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zcf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zcf')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zcf')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zcf')">极</span>
+		</p>
+	</div>
+</div>
+<!-- 右，寸，浮 -->
+<div class="col-lg-5 col-xs-12 data" id="ycf">
+	<h2></h2><p class="col-xs-12"><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ycf')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ycf')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ycf')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ycf')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ycf')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ycf')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ycf')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ycf')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ycf')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ycf')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ycf')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ycf')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ycf')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ycf')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ycf')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ycf')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ycf')" class="wu active">无</span>
+		</p>
+	</div>
+	<div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ycf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ycf')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ycf')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ycf')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ycf')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ycf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ycf')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ycf')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ycf')">极</span>
+		</p>
+	</div>
+</div>
+
+<!-- 右，关，浮 -->
+<div class="col-lg-5 col-xs-12 data" id="ygf">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ygf')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ygf')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ygf')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ygf')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ygf')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ygf')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ygf')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ygf')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ygf')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ygf')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ygf')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ygf')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ygf')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ygf')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ygf')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ygf')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ygf')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ygf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ygf')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ygf')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ygf')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ygf')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ygf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ygf')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ygf')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ygf')">极</span>
+		</p>
+	</div>
+</div>
+<!-- 右，尺，浮 -->
+<div class="col-lg-5 col-xs-12 data" id="ychf">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ychf')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ychf')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ychf')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ychf')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ychf')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ychf')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ychf')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ychf')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ychf')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ychf')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ychf')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ychf')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ychf')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ychf')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ychf')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ychf')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ychf')" class="wu active">无</span>
+
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ychf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ychf')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ychf')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ychf')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ychf')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ychf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ychf')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ychf')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ychf')">极</span>
+		</p>
+	</div>
+</div>
+<!-- 左，尺，浮 -->
+<div class="col-lg-5 col-xs-12 data" id="zchf">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zchf')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zchf')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zchf')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zchf')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zchf')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zchf')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zchf')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zchf')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zchf')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zchf')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zchf')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zchf')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zchf')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zchf')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zchf')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zchf')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zchf')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zchf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zchf')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zchf')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zchf')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zchf')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zchf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zchf')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zchf')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zchf')">极</span>
+		</p>
+	</div>
+</div>
+<!-- 左，关，浮 -->
+<div class="col-lg-5 col-xs-12 data" id="zgf">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zgf')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zgf')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zgf')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zgf')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zgf')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zgf')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zgf')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zgf')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zgf')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zgf')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zgf')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zgf')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zgf')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zgf')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zgf')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zgf')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zgf')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zgf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zgf')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zgf')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zgf')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zgf')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zgf')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zgf')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zgf')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zgf')">极</span>
+		</p>
+	</div>
+</div>
+
+<!-- 左，寸，中 -->
+<div class="col-lg-5 col-xs-12 data" id="zcz">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zcz')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zcz')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zcz')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zcz')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zcz')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zcz')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zcz')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zcz')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zcz')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zcz')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zcz')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zcz')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zcz')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zcz')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zcz')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zcz')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zcz')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zcz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zcz')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zcz')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zcz')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zcz')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zcz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zcz')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zcz')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zcz')">极</span>
+		</p>
+	</div>
+</div>
+
+
+<!-- 右，寸，中 -->
+<div class="col-lg-5 col-xs-12 data" id="ycz">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ycz')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ycz')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ycz')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ycz')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ycz')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ycz')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ycz')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ycz')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ycz')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ycz')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ycz')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ycz')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ycz')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ycz')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ycz')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ycz')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ycz')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ycz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ycz')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ycz')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ycz')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ycz')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ycz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ycz')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ycz')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ycz')">极</span>
+		</p>
+	</div>
+</div>
+
+<!-- 右，关，中 -->
+<div class="col-lg-5 col-xs-12 data" id="ygz">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ygz')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ygz')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ygz')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ygz')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ygz')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ygz')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ygz')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ygz')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ygz')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ygz')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ygz')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ygz')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ygz')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ygz')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ygz')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ygz')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ygz')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ygz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ygz')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ygz')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ygz')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ygz')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ygz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ygz')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ygz')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ygz')">极</span>
+		</p>
+	</div>
+</div>
+
+
+<!-- 右，尺，中 -->
+<div class="col-lg-5 col-xs-12 data" id="ychz">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ychz')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ychz')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ychz')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ychz')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ychz')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ychz')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ychz')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ychz')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ychz')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ychz')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ychz')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ychz')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ychz')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ychz')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ychz')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ychz')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ychz')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ychz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ychz')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ychz')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ychz')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ychz')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ychz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ychz')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ychz')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ychz')">极</span>
+		</p>
+	</div>
+</div>
+
+
+<!-- 左，尺，中 -->
+<div class="col-lg-5 col-xs-12 data" id="zchz">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zchz')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zchz')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zchz')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zchz')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zchz')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zchz')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zchz')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zchz')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zchz')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zchz')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zchz')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zchz')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zchz')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zchz')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zchz')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zchz')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zchz')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zchz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zchz')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zchz')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zchz')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zchz')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zchz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zchz')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zchz')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zchz')">极</span>
+		</p>
+	</div>
+</div>
+
+
+<!-- 左，关，中 -->
+<div class="col-lg-5 col-xs-12 data" id="zgz">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zgz')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zgz')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zgz')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zgz')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zgz')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zgz')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zgz')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zgz')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zgz')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zgz')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zgz')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zgz')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zgz')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zgz')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zgz')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zgz')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zgz')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zgz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zgz')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zgz')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zgz')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zgz')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zgz')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zgz')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zgz')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zgz')">极</span>
+		</p>
+	</div>
+</div>
+
+<!-- 左，寸，沉 -->
+<div class="col-lg-5 col-xs-12 data" id="zcc">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zcc')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zcc')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zcc')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zcc')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zcc')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zcc')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zcc')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zcc')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zcc')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zcc')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zcc')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zcc')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zcc')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zcc')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zcc')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zcc')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zcc')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zcc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zcc')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zcc')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zcc')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zcc')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zcc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zcc')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zcc')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zcc')">极</span>
+		</p>
+	</div>
+</div>
+
+<!-- 右，寸，沉 -->
+<div class="col-lg-5 col-xs-12 data" id="ycc">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ycc')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ycc')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ycc')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ycc')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ycc')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ycc')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ycc')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ycc')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ycc')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ycc')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ycc')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ycc')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ycc')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ycc')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ycc')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ycc')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ycc')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ycc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ycc')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ycc')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ycc')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ycc')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ycc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ycc')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ycc')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ycc')">极</span>
+		</p>
+	</div>
+</div> 
+
+<!-- 右，关，沉 -->
+<div class="col-lg-5 col-xs-12 data" id="ygc">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ygc')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ygc')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ygc')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ygc')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ygc')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ygc')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ygc')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ygc')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ygc')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ygc')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ygc')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ygc')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ygc')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ygc')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ygc')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ygc')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ygc')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ygc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ygc')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ygc')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ygc')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ygc')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ygc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ygc')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ygc')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ygc')">极</span>
+		</p>
+	</div>
+</div>
+
+<!-- 右，尺，沉 -->
+<div class="col-lg-5 col-xs-12 data" id="ychc">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','ychc')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','ychc')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','ychc')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','ychc')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','ychc')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','ychc')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','ychc')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','ychc')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','ychc')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','ychc')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','ychc')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','ychc')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','ychc')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','ychc')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','ychc')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','ychc')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','ychc')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','ychc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','ychc')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','ychc')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','ychc')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','ychc')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','ychc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','ychc')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','ychc')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','ychc')">极</span>
+		</p>
+	</div>
+</div>
+
+<!-- 左，尺，沉 -->
+<div class="col-lg-5 col-xs-12 data" id="zchc">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zchc')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zchc')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zchc')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zchc')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zchc')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zchc')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zchc')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zchc')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zchc')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zchc')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zchc')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zchc')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zchc')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zchc')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zchc')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zchc')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zchc')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zchc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zchc')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zchc')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zchc')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zchc')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zchc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zchc')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zchc')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zchc')">极</span>
+		</p>
+	</div>
+</div>
+
+<!-- 左，关，沉 -->
+<div class="col-lg-5 col-xs-12 data" id="zgc">
+	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
+<input type='button' class='btn btn-default col-xs-5 col-xs-offset-1' value='脉象描述' onclick='show()'></p>
+	<div class="one">
+		<h3>温度：</h3>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhonghan1','zgc')" class="han1">重寒<label></label></span>
+			<span onclick="changeAttr(this,'zhonghan2','zgc')" class="han2">中寒<label></label></span>
+			<span onclick="changeAttr(this,'weihan','zgc')" class="han3">微寒<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'wen','zgc')" class="wen">温<label></label></span>
+		</p>
+		<p>
+			
+			<span onclick="changeAttr(this,'zhongre1','zgc')" class="re1">重热<label></label></span>
+			<span onclick="changeAttr(this,'zhongre2','zgc')" class="re2">中热<label></label></span>
+			<span onclick="changeAttr(this,'weire','zgc')" class="re3">微热<label></label></span>
+		</p>
+	</div>
+	<div class="two">
+		<h3>异常状态：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yu1','zgc')">郁(^)</span>
+			<span onclick="changeAttr(this,'yu2','zgc')">瘀(*)</span>
+			<span onclick="changeAttr(this,'shui','zgc')">水(W)</span>
+			<span onclick="changeAttr(this,'shi','zgc')">湿(M)</span>
+			<span onclick="changeAttr(this,'tan','zgc')">痰(O)</span>
+			<span onclick="changeAttr(this,'yichang-wu','zgc')" class="wu active">无</span>
+		</p>
+	</div>
+	
+	<div class="two">
+		<h3>异常程度：</h3>
+		<p>
+			<span  onclick="changeAttr(this,'yichang-1','zgc')">轻(1)</span>
+			<span onclick="changeAttr(this,'yichang-2','zgc')">中(2)</span>
+			<span onclick="changeAttr(this,'yichang-3','zgc')">重(3)</span>
+			<span onclick="changeAttr(this,'yichang-chengdu-wu','zgc')" class="wu active">无</span>
+		</p>
+	</div><div class="three">
+		<h3>虚实：</h3>
+		<p>
+			<span class="xushi-shi">实<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-shi-1','zgc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-shi-2','zgc')">中</span>
+			<span onclick="changeAttr(this,'xushi-shi-3','zgc')">重</span>
+			<span onclick="changeAttr(this,'xushi-shi-4','zgc')">极</span>
+		</p>
+		<p>
+			<span onclick="changeAttr(this,'xushi-chang','zgc')" class="xushi-chang">常<label></label></span>
+		</p>
+		<p>
+			<span class="xushi-xu">虚<label></label></span>:
+			<span onclick="changeAttr(this,'xushi-xu-1','zgc')">轻</span>
+			<span onclick="changeAttr(this,'xushi-xu-2','zgc')">中</span>
+			<span onclick="changeAttr(this,'xushi-xu-3','zgc')">重</span>
+			<span onclick="changeAttr(this,'xushi-xu-4','zgc')">极</span>
+		</p>
+	</div>
+</div>
+</div>
+</div>
+
+<svg class="col-xs-12" id="mai" style="height:350px">
+
+<!-- -------------------- 浮 ------------------------------------ -->
+	<text x="79" y="35" font-family="serif" font-size="15" fill="black" id="zcf-s" class="yichang"></text>
+	<text x="94" y="35" font-family="serif" font-size="12" fill="black" id="zcf-y" class="yichang"></text>
+
+	<text x="221" y="35" font-family="serif" font-size="15" fill="black" id='ycf-s' class="yichang"></text>
+	<text x="235" y="35" font-family="serif" font-size="12" fill="black" id='ycf-y' class="yichang"></text>
+
+	<text x="285" y="160" font-family="serif" font-size="15" fill="black" id='ygf-s' class="yichang"></text>
+	<text x="300" y="160" font-family="serif" font-size="12" fill="black" id='ygf-y' class="yichang"></text>
+
+	<text x="250" y="280" font-family="serif" font-size="15" fill="black" id='ychf-s' class="yichang"></text>
+	<text x="265" y="280" font-family="serif" font-size="12" fill="black" id='ychf-y' class="yichang"></text>
+
+	<text x="60" y="280" font-family="serif" font-size="15" fill="black" id="zchf-s" class="yichang"></text>
+	<text x="75" y="280" font-family="serif" font-size="12" fill="black" id="zchf-y" class="yichang"></text>
+
+	<text x="0" y="160" font-family="serif" font-size="15" fill="black" id='zgf-s' class="yichang"></text>
+	<text x="15" y="160" font-family="serif" font-size="12" fill="black" id='zgf-y' class="yichang"></text>
+
+<!-- -------------------- 中 ------------------------------------ -->
+	<text x="110" y="73" font-family="serif" font-size="15" fill="black" id="zcz-s" class="yichang"></text>
+	<text x="125" y="73" font-family="serif" font-size="12" fill="black" id="zcz-y" class="yichang"></text>
+
+	<text x="200" y="73" font-family="serif" font-size="15" fill="black" id="ycz-s" class="yichang"></text>
+	<text x="215" y="73" font-family="serif" font-size="12" fill="black" id="ycz-y" class="yichang"></text>
+
+	<text x="245" y="160" font-family="serif" font-size="15" fill="black" id='ygz-s' class="yichang"></text>
+	<text x="260" y="160" font-family="serif" font-size="12" fill="black" id='ygz-y' class="yichang"></text>
+
+	<text x="210" y="250" font-family="serif" font-size="15" fill="black" id='ychz-s' class="yichang"></text>
+	<text x="225" y="250" font-family="serif" font-size="12" fill="black" id='ychz-y' class="yichang"></text>
+
+	<text x="90" y="250" font-family="serif" font-size="15" fill="black" id="zchz-s" class="yichang"></text>
+	<text x="105" y="250" font-family="serif" font-size="12" fill="black" id="zchz-y" class="yichang"></text>
+
+	<text x="40" y="160" font-family="serif" font-size="15" fill="black" id='zgz-s' class="yichang"></text>
+	<text x="55" y="160" font-family="serif" font-size="12" fill="black" id='zgz-y' class="yichang"></text>
+
+<!-- -------------------- 沉 ------------------------------------ -->
+	<text x="125" y="110" font-family="serif" font-size="15" fill="black" id="zcc-s" class="yichang"></text>
+	<text x="140" y="110" font-family="serif" font-size="12" fill="black" id="zcc-y" class="yichang"></text>
+	<text x="170" y="110" font-family="serif" font-size="15" fill="black" id="ycc-s" class="yichang"></text>
+	<text x="185" y="110" font-family="serif" font-size="12" fill="black" id="ycc-y" class="yichang"></text>
+
+	<text x="205" y="160" font-family="serif" font-size="15" fill="black" id='ygc-s' class="yichang"></text>
+	<text x="220" y="160" font-family="serif" font-size="12" fill="black" id='ygc-y' class="yichang"></text>
+15
+	<text x="180" y="217" font-family="serif" font-size="15" fill="black" id='ychc-s' class="yichang"></text>
+	<text x="195" y="217" font-family="serif" font-size="12" fill="black" id='ychc-y' class="yichang"></text>
+
+	<text x="115" y="217" font-family="serif" font-size="15" fill="black" id="zchc-s" class="yichang"></text>
+	<text x="130" y="217" font-family="serif" font-size="12" fill="black" id="zchc-y" class="yichang"></text>
+
+	<text x="80" y="160" font-family="serif" font-size="15" fill="black" id='zgc-s' class="yichang"></text>
+	<text x="95" y="160" font-family="serif" font-size="12" fill="black" id='zgc-y' class="yichang"></text>
+	<!-- 左->寸，关，尺 -->
+	<text x="10" y="20" font-family="serif" font-size="15" fill="gray">左</text>
+	<text x="50" y="30" font-family="serif" font-size="15" fill="gray">寸</text>
+	<text x="5" y="100" font-family="serif" font-size="15" fill="gray">关</text>
+	<text x="35" y="300" font-family="serif" font-size="15" fill="gray">尺</text>
+	
+	<!-- 右->寸，关，尺-->
+	<text x="290" y="20" font-family="serif" font-size="15" fill="gray">右</text>
+	<text x="250" y="30" font-family="serif" font-size="15" fill="gray">寸</text>
+	<text x="300" y="100" font-family="serif" font-size="15" fill="gray">关</text>
+	<text x="270" y="300" font-family="serif" font-size="15" fill="gray">尺</text>
+
+	<!-- 浮，中，沉-->
+	<text x="152" y="35" font-family="serif" font-size="15" fill="gray">浮</text>
+	<text x="152" y="80" font-family="serif" font-size="15" fill="gray">中</text>
+	<text x="152" y="130" font-family="serif" font-size="15" fill="gray">沉</text>
+	<!-- 分割线 -->
+	<line x1="160" y1="0" x2="160" y2="320" stroke="gray"/>
+	<line x1="0" y1="67" x2="320" y2="252" stroke="gray"/>
+	<line x1="0" y1="252" x2="320" y2="67" stroke="gray"/>
+	<!-- 浮 -->
+	<path d="M 34,85 Q 80,15 160,16" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="0,67 160,-20 160,30 42,90" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'左，寸，浮','zcf')" style="cursor:pointer"/>
+
+	<path d="M 160,16 Q 236,15 287,88" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="160,-20 160,30 278,93 320,67" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'右，寸，浮','ycf')" style="cursor:pointer"/>
+
+	<path d="M 287,88 Q 327,160 289,235" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="278,93 320,67 320,252 280,231" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'右，关，浮','ygf')" style="cursor:pointer"/>
+
+	<path d="M 289,235 Q 243,310 160,310" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="280,231 320,252 160,350 160,300" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'右，尺，浮','ychf')" style="cursor:pointer"/>
+
+	<path d="M 160,310 Q 75,310 31,234" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="160,350 160,300 40,228 0,252" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'左，尺，浮','zchf')" style="cursor:pointer"/>
+
+	<path d="M 31,234 Q -10,160 34,85" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="40,228 0,252 0,67 42,90" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'左，关，浮','zgf')" style="cursor:pointer"/>
+	<!-- 中 -->
+	<path d="M 70,107 Q 95,60 160,56" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="160,30 42,90 80,114 160,73" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'左，寸，中','zcz')" style="cursor:pointer"/>
+
+	<path d="M 160,56 Q 217,60 250,107" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="160,30 160,73 232,116 277,95" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'右，寸，中','ycz')" style="cursor:pointer"/>
+
+	<path d="M 250,107 Q 278,160 253,213" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="232,116 277,95 281,229 240,209" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'右，关，中','ygz')" style="cursor:pointer"/>
+
+	<path d="M 253,213 Q 223,266 160,269" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="281,229 240,209 160,250 160,300" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'右，尺，中','ychz')" style="cursor:pointer"/>
+
+	<path d="M 160,269 Q 100,269 64,213" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="160,250 160,300 42,230 82,204" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'左，尺，中','zchz')" style="cursor:pointer"/>
+
+	<path d="M 64,213 Q 37,160 70,107" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="42,230 82,204 80,114 42,90" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'左，关，中','zgz')" style="cursor:pointer"/>
+	<!-- 沉 -->
+	<path d="M 105,128 Q 121,100 160,98" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="160,75 80,114 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'左，寸，沉','zcc')" style="cursor:pointer"/>
+	<path d="M 160,98 Q 197,97 215,128" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="233,113 160,75 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'右，寸，沉','ycc')" style="cursor:pointer"/>
+
+	<path d="M 215,128 Q 233,160 219,194" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="241,205 233,113 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'右，关，沉','ygc')" style="cursor:pointer"/>
+
+	<path d="M 219,194 Q 196,227 160,229" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="160,251 241,205 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'右，尺，沉','ychc')" style="cursor:pointer"/>
+
+	<path d="M 160,229 Q 120,227 100,192" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="83,206 160,251 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'左，尺，沉','zchc')" style="cursor:pointer"/>
+
+	<path d="M 100,192 Q 88,160 105,128" stroke="gray" stroke-width="1" fill="none" />
+	<polygon points="82,204 80,114 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'左，关，沉','zgc')" style="cursor:pointer"/>
+</svg>
+<div class="clear"></div>
+
+<div class="container col-lg-5 col-xs-12" style="display:block;margin:10px 0px" id="alert">
+	<h4 style="text-align:center;font-size:20px;color:green">点击脉象图，添加数据</h4>
+</div>
+<div class="container col-lg-5 col-xs-12" style="display:block;margin:10px 0px" id="list">
+	<a href="./list.php"><h4 style="text-align:center;font-size:20px;color:green">查看脉象记录</h4></a>
+</div>
+
+<div class="col-lg-5 col-xs-12 data" style="padding:0px 10px" id="show"></div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/changeM.js"></script>
+</body>
+</html>
+
+
