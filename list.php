@@ -1,4 +1,5 @@
 <?php
+	header("Cache-Control: no-cache");
 	header("Content-Type:text/html;charset=utf-8");
 	$conn = new Mongo();
 	$db=$conn->mz_data; 
@@ -23,7 +24,7 @@
 <link rel="shortcut icon" href="http://pan.baidu.com/res/static/images/favicon.ico"/>
 </head>
 <body>
-	<h2 style="text-align:center">用户脉象诊断数据列表</h2>
+	<h2 style="text-align:center">用户脉象诊断数据列表<a href="./index.html"><btn class="btn btn-default" style="float:right;margin-right:70px">添加脉象信息</btn></a></h2>
 	<?php
 	if($data){
 		$a = 0;
@@ -46,8 +47,8 @@
 	?>
 
 <div id="maizhen" style="position:fixed;top:0px;left:0px;width:100%;height:100%;background:rgba(0,0,0,0.4) none repeat scroll;z-index:9999;display:none;">
-	<div style="width:60%;height:100%;padding:30px 15px;margin-left:20%;background-color:#f1f1f1;color:#333;border:1px solid #000000;-webkit-border-radius: 6px 6px 6px 6px;-moz-border-radius: 6px 6px 6px 6px;border-radius: 6px 6px 6px 6px;-webkit-box-shadow: #fff 0px 0px 18px;-moz-box-shadow: #fff 0px 0px 18px;box-shadow: #fff 0px 0px 18px;overflow:hidden;overflow-y:auto;">
-		<svg class="col-lg-12" id="mai" height="600" style="margin-left:60px;">
+	<div class="col-lg-10 col-lg-offset-1" style="height:100%;padding:30px 15px;background-color:#f1f1f1;color:#333;border:1px solid #000000;-webkit-border-radius: 6px 6px 6px 6px;-moz-border-radius: 6px 6px 6px 6px;border-radius: 6px 6px 6px 6px;-webkit-box-shadow: #fff 0px 0px 18px;-moz-box-shadow: #fff 0px 0px 18px;box-shadow: #fff 0px 0px 18px;overflow:hidden;overflow-y:auto;">
+		<svg class="col-lg-8 col-lg-offset-2 col-xs-12" id="mai" height="600">
 		<!-- -------------------- 浮 ------------------------------------ -->
 			<text x="170" y="90" font-family="serif" font-size="35" fill="black" id="zcf-s" class="yichang"></text>
 			<text x="200" y="90" font-family="serif" font-size="25" fill="black" id="zcf-y" class="yichang"></text>

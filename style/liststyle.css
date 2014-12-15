@@ -12,3 +12,11 @@
 	margin-left: 77px;
 	cursor: pointer;
 }
+
+@media screen and (max-width: 680px) {	
+	.list{
+
+		margin: 20px;
+		cursor: pointer;
+	}
+}

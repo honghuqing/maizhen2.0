@@ -154,5 +154,12 @@ p{
 	text-align:center;
 	font-size:14px;
 	color:red;
-	font-weight:bold"
+	font-weight:bold;
 }
+
+@media screen and (max-width: 900px) {	
+	.clear{
+		clear: both;
+	}
+}
+

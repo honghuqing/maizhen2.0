@@ -1,4 +1,4 @@
-	var attr = ['zcf','ycf','ygf','ychf','zchf','zgf','zcz','ycz','ygz','ychz','zchz','zgz','zcc','ycc','ygc','ychc','zchc','zgc','alert'];
+	var attr = ['zcf','ycf','ygf','ychf','zchf','zgf','zcz','ycz','ygz','ychz','zchz','zgz','zcc','ycc','ygc','ychc','zchc','zgc','alert','show','list'];
 
 	var obj;
 	function changeStyle(obj1, addr, arg){
@@ -352,6 +352,7 @@
 			$("#"+attr[i]).css('display','none');
 		}
 		$("#show").css('display','block');
+		$("#list").show(500);
 		$("#show").html(content);
 
 		var data = '{';
