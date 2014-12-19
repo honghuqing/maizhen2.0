@@ -23,7 +23,7 @@
 </div>
 <div id="maizhen" style="position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:9999;display:none;">
 <div class="col-xs-12" style="background:#fff;height:100%;color:#333;overflow:hidden;overflow-y:auto;padding:10px">
-<button class="btn btn-default" onclick="hiden()" style="float:right">关闭</button>
+<button class="btn btn-default" onclick="hiden()" style="float:right;position:fixed;top:10px;right:10px;z-index:999">关闭</button>
 <!-- 左，寸，浮 -->
 <div class="col-lg-5 col-xs-12" id="zcf">
 	<h2></h2><p><input type='button' class='btn btn-default col-xs-5' value='合脉脉象' onclick='heMai()'>
@@ -1273,67 +1273,72 @@
 	<text x="152" y="80" font-family="serif" font-size="15" fill="gray">中</text>
 	<text x="152" y="130" font-family="serif" font-size="15" fill="gray">沉</text>
 	<!-- 分割线 -->
-	<line x1="160" y1="0" x2="160" y2="320" stroke="gray"/>
-	<line x1="0" y1="67" x2="320" y2="252" stroke="gray"/>
-	<line x1="0" y1="252" x2="320" y2="67" stroke="gray"/>
+	<line x1="160" y1="0" x2="160" y2="320" stroke="#ddd"/>
+	<line x1="0" y1="71" x2="320" y2="256" stroke="#ddd"/>
+	<line x1="0" y1="256" x2="320" y2="71" stroke="#ddd"/>
 	<!-- 浮 -->
-	<path d="M 34,85 Q 80,15 160,16" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 34,85 Q 80,16 160,16" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="0,67 160,-20 160,30 42,90" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'左，寸，浮','zcf')" style="cursor:pointer"/>
 
-	<path d="M 160,16 Q 236,15 287,88" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 160,16 Q 243,17 289,90" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="160,-20 160,30 278,93 320,67" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'右，寸，浮','ycf')" style="cursor:pointer"/>
 
-	<path d="M 287,88 Q 327,160 289,235" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 289,90 Q 325,160 287,237" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="278,93 320,67 320,252 280,231" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'右，关，浮','ygf')" style="cursor:pointer"/>
 
-	<path d="M 289,235 Q 243,310 160,310" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 287,237 Q 243,308 160,310" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="280,231 320,252 160,350 160,300" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'右，尺，浮','ychf')" style="cursor:pointer"/>
 
-	<path d="M 160,310 Q 75,310 31,234" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 160,310 Q 75,308 32,238" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="160,350 160,300 40,228 0,252" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'左，尺，浮','zchf')" style="cursor:pointer"/>
 
-	<path d="M 31,234 Q -10,160 34,85" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 32,238 Q -10,160 34,85" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="40,228 0,252 0,67 42,90" fill="rgba(0,0,0,0)" onclick="changeStyle(this,'左，关，浮','zgf')" style="cursor:pointer"/>
 	<!-- 中 -->
-	<path d="M 70,107 Q 95,60 160,56" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 67,111 Q 95,60 160,56" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="160,30 42,90 80,114 160,73" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'左，寸，中','zcz')" style="cursor:pointer"/>
 
-	<path d="M 160,56 Q 217,60 250,107" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 160,56 Q 217,58 250,107" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="160,30 160,73 232,116 277,95" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'右，寸，中','ycz')" style="cursor:pointer"/>
 
-	<path d="M 250,107 Q 278,160 253,213" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 250,107 Q 280,160 254,214" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="232,116 277,95 281,229 240,209" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'右，关，中','ygz')" style="cursor:pointer"/>
 
-	<path d="M 253,213 Q 223,266 160,269" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 254,214 Q 223,266 160,271" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="281,229 240,209 160,250 160,300" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'右，尺，中','ychz')" style="cursor:pointer"/>
 
-	<path d="M 160,269 Q 100,269 64,213" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 160,271 Q 100,269 67,216" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="160,250 160,300 42,230 82,204" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'左，尺，中','zchz')" style="cursor:pointer"/>
 
-	<path d="M 64,213 Q 37,160 70,107" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 67,216 Q 39,160 67,111" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="42,230 82,204 80,114 42,90" fill="rgba(255,110,177,0)" onclick="changeStyle(this,'左，关，中','zgz')" style="cursor:pointer"/>
 	<!-- 沉 -->
-	<path d="M 105,128 Q 121,100 160,98" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 103,130 Q 121,100 160,97" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="160,75 80,114 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'左，寸，沉','zcc')" style="cursor:pointer"/>
-	<path d="M 160,98 Q 197,97 215,128" stroke="gray" stroke-width="1" fill="none" />
+
+	<path d="M 160,97 Q 197,100 215,128" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="233,113 160,75 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'右，寸，沉','ycc')" style="cursor:pointer"/>
 
-	<path d="M 215,128 Q 233,160 219,194" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 215,128 Q 233,160 216,197" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="241,205 233,113 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'右，关，沉','ygc')" style="cursor:pointer"/>
 
-	<path d="M 219,194 Q 196,227 160,229" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 216,197 Q 197,228 160,229" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="160,251 241,205 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'右，尺，沉','ychc')" style="cursor:pointer"/>
 
-	<path d="M 160,229 Q 120,227 100,192" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 160,229 Q 118,227 100,192" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="83,206 160,251 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'左，尺，沉','zchc')" style="cursor:pointer"/>
 
-	<path d="M 100,192 Q 88,160 105,128" stroke="gray" stroke-width="1" fill="none" />
+	<path d="M 100,192 Q 86,160 103,130" stroke="gray" stroke-width="1" fill="none" />
 	<polygon points="82,204 80,114 160,160" fill="rgba(255,110,110,0)" onclick="changeStyle(this,'左，关，沉','zgc')" style="cursor:pointer"/>
 </svg>
+<img src="./1.png" style="position:fixed;top:73px;left:0px;display:none" />
 <div class="clear"></div>
 
 <div class="container col-lg-5 col-xs-12" style="display:block;margin:10px 0px" id="alert">
-	<h4 style="text-align:center;font-size:20px;color:green">点击脉象图，添加数据</h4>
+	<h4 style="text-align:center;font-size:20px;color:red">点击脉象图，添加数据</h4>
+</div>
+<div class="container col-lg-5 col-xs-12" style="display:block;margin:10px 0px" id="list">
+	<a href="javascript:;" onclick="show()"><h4 style="text-align:center;font-size:20px;color:green">提交数据,查看脉象描述</h4></a>
 </div>
 <div class="container col-lg-5 col-xs-12" style="display:block;margin:10px 0px" id="list">
 	<a href="./list.php"><h4 style="text-align:center;font-size:20px;color:green">查看脉象记录</h4></a>

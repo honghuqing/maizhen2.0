@@ -17,6 +17,8 @@
 			$("#"+attr[i]).css('display','none');
 		}
 		$("#maizhen").css('display','none');
+		$("#alert").css('display','block');
+		$("#list").css('display','block');
 	}
 	function heMai(){
 		$("path").attr({
@@ -28,7 +30,7 @@
 		$(".wu").addClass('active');
 		$(".wen").addClass('active');
 		$(".xushi-chang").addClass('active');
-		$(".yichang").html('');
+		$(".yichang").text(' ');
 
 		wendu['zcf'] = '温';
 		wendu['ycf'] = '温';

@@ -51,9 +51,8 @@
 </div>
 <div id="maizhen" style="position:fixed;top:0px;left:0px;width:100%;height:100%;background:rgba(255,255,255,1) none repeat scroll;z-index:9999;display:none;">
 <div class="col-xs-12" style="height:100%;background-color:#f1f1f1;color:#333;border:1px solid #000000;-webkit-border-radius: 6px 6px 6px 6px;-moz-border-radius: 6px 6px 6px 6px;border-radius: 6px 6px 6px 6px;-webkit-box-shadow: #fff 0px 0px 18px;-moz-box-shadow: #fff 0px 0px 18px;box-shadow: #fff 0px 0px 18px;overflow:hidden;overflow-y:auto;">
-	<h2 class="col-xs-6 col-xs-offset-3" style="text-align:center;font-size:17px;padding:10px;border:1px solid #aaaaaa"><span style="">加载中...</span></h2>
+	<div class="col-xs-6 col-xs-offset-3" id="name" style="text-align:center;font-size:17px;padding:10px;">加载中...</div>
 <svg class="col-xs-12" id="mai" style="height:400px">
-
 <!-- -------------------- 浮 ------------------------------------ -->
 	<text x="79" y="35" font-family="serif" font-size="15" fill="black" id="zcf-s" class="yichang"></text>
 	<text x="94" y="35" font-family="serif" font-size="12" fill="black" id="zcf-y" class="yichang"></text>
@@ -153,7 +152,32 @@
 </svg>
 </div>
 </div>
+<p id="back-to-top"><a href="#top"><span></span></a></p>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/list.js"></script>
+
+<script>
+$(function(){
+        //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+        $(function () {
+            $(window).scroll(function(){
+                if ($(window).scrollTop()>100){
+                    $("#back-to-top").fadeIn(1500);
+                }
+                else
+                {
+                    $("#back-to-top").fadeOut(1500);
+                }
+            });
+
+            //当点击跳转链接后，回到页面顶部位置
+
+            $("#back-to-top").click(function(){
+                $('body,html').animate({scrollTop:0},1000);
+                return false;
+            });
+        });
+    });
+</script>
 </body>
 </html>
