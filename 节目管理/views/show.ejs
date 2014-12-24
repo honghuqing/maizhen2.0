@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>脉诊之道</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/login.css">
+<link href="/stylesheets/style.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+	<%include header%>
+	<div class="col-lg-12 main">
+			<div class="col-lg-12" style="padding:0px">
+				<h4 style="border-bottom:1px solid #aaa;padding:10px 0px;margin:0px;margin-bottom:10px">
+					<%if(title){%>
+					<span style="color:red">	<%=title%></span>
+					<%}%>
+					节目列表
+				<a href="/addshow" style="float:right">添加节目</a></h4>
+				<div class="col-lg-12" style="padding:0px">
+					<table class="table table-bordered">
+						<tr>
+							<th>节目图片</th>
+							<th>节目标题</th>
+							<th>所属专辑</th>
+							<th>描述</th>
+							<th>创建时间</th>
+							<th>操作</th>
+							<%if(!data || data.length == 0){%>
+			             <tr>
+			               <td colspan="6">暂时没有节目</td>
+			             </tr>
+			         <%}else{%>
+						     <%data.forEach(function(show){%>
+						        <tr>
+							       <td><img src="/uploads/<%=show.picture%>" width="30" height="30" /></td>
+							       <td><%=show.title%></td>
+										 <td>
+										 <%if(title != ''){%>
+											<%=title%>
+										 <%}else{%>
+										 <%=show.special.title%>
+										 <%}%>
+										 </td>
+							       <td><%=show.desc%></td>
+							       <td><%=show.addtime%></td>
+							       <td>
+							         <a href="/delshow?show=<%=show._id%>&special=<%=show.special._id%>" class="btn btn-default">删除</a>
+									    <a href="/editshow/<%=show._id%>" class="btn btn-default">修改</a>
+								     </td>
+										</tr>
+									<%})%>
+								<%}%>
+					</table>
+				</div>
+			</div>		
+		<div class="col-lg-8"></div>
+	</div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/check.js"></script>
+</body>
+</html>

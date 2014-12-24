@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>脉诊之道</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/login.css">
+<link href="/stylesheets/style.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+	<%include header%>
+	<div class="col-lg-12 main">
+			<div class="col-lg-12" style="padding:0px">
+				<h4 style="border-bottom:1px solid #aaa;padding:10px 0px;margin:0px;margin-bottom:10px">添加专辑
+			</h4>
+				<div class="col-lg-12" style="padding:30px 0px 0px 40px">
+					<form role="form" action="/addspecial" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>标题:</label>
+							<input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="专辑标题" style="margin-left:20px">
+						</div>
+						<div class="form-group">
+							<label>作者:</label>
+							<input type="text" name="author" class="form-control" id="exampleInputEmail1" placeholder="专辑作者" style="margin-left:20px">
+						</div>
+						<div class="form-group">
+						    <label for="exampleInputFile">图片:</label>
+						    <input type="file" id="exampleInputFile" name="picture" style="margin-left:20px;display:inline">
+						</div>
+						<div class="form-group">
+							<label for="desc" style="float:left">简介:</label>
+							<textarea id="desc" name="desc" class="col-lg-8 form-control" placeholder="专辑简介" style="margin-left:20px"></textarea>
+						</div>
+						<div class="form-group col-lg-10">
+							<button type="submit" class="btn btn-info" style="margin:20px 0px 0px 36px">Submit</button>
+						</div>
+						
+					</form>
+				</div>
+			</div>		
+		<div class="col-lg-8"></div>
+	</div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/check.js"></script>
+</body>
+</html>
